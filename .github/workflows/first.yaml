@@ -1,8 +1,35 @@
-name: FistWorkflow Pipleline
-on : 
-    push: 
-        branches: 
-            -main
-jobs: 
-    build: 
-        runs-on: ubuntu-latest
+name: CI Pipeline
+
+# Déclencheurs du workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Définition des jobs
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Étapes du job
+    steps:
+      # Étape 1 : Vérifier le code source
+      - name: Vérifier le dépôt
+        uses: actions/checkout@v4
+
+      # Étape 2 : Configurer la version de Node.js
+      - name: Utiliser Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Étape 3 : Installer les dépendances
+      - name: Installer les dépendances
+        run: npm install -g bats
+
+      # Étape 4 : Lancer les tests
+      - name: Exécuter les tests
+        run: bats -v
