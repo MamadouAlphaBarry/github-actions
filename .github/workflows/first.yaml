@@ -11,7 +11,7 @@ on:
 
 # Définition des jobs
 jobs:
-  buildApplication:
+  build:
     runs-on: ubuntu-latest
 
     # Étapes du job
