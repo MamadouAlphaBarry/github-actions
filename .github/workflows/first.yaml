@@ -16,7 +16,7 @@ jobs:
 
     # Étapes du job
     steps:
-      # Étape 1 : Vérifier le code source
+      # Étape 1 : Vérifier le dépôt
       - name: Vérifier le dépôt
         uses: actions/checkout@v4
 
@@ -28,12 +28,21 @@ jobs:
 
       # Étape 3 : Installer les dépendances
       - name: Installer les dépendances
+        run: npm install
+
+      # Étape 4 : Installer BATS pour les tests shell
+      - name: Installer BATS
         run: npm install -g bats
-      - name: Analyse du code
+
+      # Étape 5 : Analyse du code avec CodeQL
+      - name: Initialiser CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: 'javascript' # Change en fonction de ton projet (JavaScript/TypeScript, etc.)
+
+      - name: Analyser le code
         uses: github/codeql-action/analyze@v2
 
-       
-
-      # Étape 4 : Lancer les tests
-      - name: Exécuter les tests
-        run: bats -v
+      # Étape 6 : Lancer les tests avec BATS
+      - name: Exécuter les tests BATS
+        run: bats tests/  # Assure-toi que tes tests BATS se trouvent dans le répertoire `tests/`
