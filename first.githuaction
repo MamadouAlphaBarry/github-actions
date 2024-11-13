@@ -1,1 +1,3 @@
-n
+
+  git config --global user.email "etu.enset-media.ac.ma"
+  git config --global user.name "Mamadou Alpha"
