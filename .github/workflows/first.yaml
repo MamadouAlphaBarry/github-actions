@@ -11,7 +11,7 @@ on:
 
 # Définition des jobs
 jobs:
-  build:
+  buildApplication:
     runs-on: ubuntu-latest
 
     # Étapes du job
@@ -29,6 +29,10 @@ jobs:
       # Étape 3 : Installer les dépendances
       - name: Installer les dépendances
         run: npm install -g bats
+      - name: Analyse du code
+        uses: github/codeql-action/analyze@v2
+
+       
 
       # Étape 4 : Lancer les tests
       - name: Exécuter les tests
