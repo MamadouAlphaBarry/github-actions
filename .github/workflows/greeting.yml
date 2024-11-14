@@ -9,6 +9,9 @@ jobs:
         steps:
             - name: recuperer le repository
               uses: actions/checkout@v4
+            - name: donner les permissions
+              run: chmod +x ./scripts/salut.sh ./scripts/reponse.sh
+            
             - name: executer les fichier salut
               run: ./scripts/salut.sh
     reponse: 
@@ -16,9 +19,6 @@ jobs:
         steps: 
             - name: Recuperer les ripository
               uses: actions/checkout@v4
-
-            - name: donner les permissions
-              run: chmod +x ./scripts/*.sh 
 
             - name: executer les fichier response
               run: ./scripts/reponse.sh
