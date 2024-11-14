@@ -1,0 +1,21 @@
+name: Greeting workFlow
+on: 
+    push: 
+        branches: 
+            - main
+jobs: 
+    saluer: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: recuperer le repository
+              uses: actions/checkout@v4
+            - name: executer les fichier salut
+              run: ./scripts/salut.sh
+    reponse: 
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Recuperer les ripository
+              uses: actions/checkout@v4
+            - name: executer les fichier response
+              run: ./scripts/reponse.sh
+        
