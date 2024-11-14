@@ -16,9 +16,9 @@ jobs:
         steps: 
             - name: Recuperer les ripository
               uses: actions/checkout@v4
-              
+
             - name: donner les permissions
-              run: chmod +x ./scripts/salut.sh ./scripts/reponse.sh
+              run: chmod +x ./scripts/*.sh 
 
             - name: executer les fichier response
               run: ./scripts/reponse.sh
