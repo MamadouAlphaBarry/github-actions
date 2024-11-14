@@ -29,7 +29,3 @@ jobs:
       # Étape 3 : Installer les dépendances
       - name: Installer les dépendances
         run: npm install
-
-      # Étape 4 : Installer BATS pour les tests shell
-      - name: Installer BATS
-        run: npm install -g bats
