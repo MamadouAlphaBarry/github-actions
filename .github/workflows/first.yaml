@@ -25,7 +25,3 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      # Étape 3 : Installer les dépendances
-      - name: Installer les dépendances
-        run: npm install
