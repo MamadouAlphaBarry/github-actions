@@ -22,7 +22,25 @@ jobs:
 
             - name: donner les permissions
               run: chmod +x ./scripts/reponse.sh
-              
+
             - name: executer les fichier response
               run: ./scripts/reponse.sh
+    installerJava:
+        runs-on: ubuntu-latest 
+        steps: 
+            - name: Recuper le repo
+              uses: actions/checkout@v4
+            - name: Installer Java
+              uses: actions/setup-java@v4
+              with:
+                distribution: 'temurin'
+                java-version: '21'
+                run: java HelloWorldApp.java
+             
+             
+    
+
+
+    
+
         
