@@ -1,0 +1,20 @@
+name: JavaScript FIle WorkFlow
+on:
+    push:
+        branches:
+            -main
+jobs:
+    nodeJs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Recuperation du Ripository
+              uses: actions/checkout@v4
+            - name: Installation du Nodejs
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+                run: npm ci & npm test
+             
+              
+            
+            
