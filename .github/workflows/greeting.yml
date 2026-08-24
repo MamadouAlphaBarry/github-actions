@@ -14,6 +14,15 @@ jobs:
             
             - name: executer les fichier salut
               run: ./scripts/salut.sh
+
+            - name: charger la simulation 
+              uses: actions/checkout@v4
+
+            - name: changer la permission du file deployment
+              run:  chmod +x ./scripts/deploy-simulation.sh
+            - name: executer le fichier deploy-simulation.sh
+              run : ./scripts/deploy-simulation.sh
+            
     reponse: 
         runs-on: ubuntu-latest
         steps: 
